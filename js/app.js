@@ -6,16 +6,17 @@ const loadPhones = async (searchText) => {
 };
 const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
+  phoneContainer.innerHTML = ``;
   //   display 20 phone only
   phones = phones.slice(0, 20);
-  //   display no phone found 
-  const noFound = document.getElementById('not-found-message');
+  //   display no phone found
+  const noFound = document.getElementById("not-found-message");
   if (phones.length === 0) {
-    noFound.classList.remove('d-none');
+    noFound.classList.remove("d-none");
   } else {
-    noFound.classList.add('d-none');
+    noFound.classList.add("d-none");
   }
-  phoneContainer.innerHTML = ``;
+  //   display all phone
   phones.forEach((phone) => {
     // console.log(phone);
     const phoneDiv = document.createElement("div");
