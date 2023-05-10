@@ -6,6 +6,15 @@ const loadPhones = async (searchText) => {
 };
 const displayPhones = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
+  //   display 20 phone only
+  phones = phones.slice(0, 20);
+  //   display no phone found 
+  const noFound = document.getElementById('not-found-message');
+  if (phones.length === 0) {
+    noFound.classList.remove('d-none');
+  } else {
+    noFound.classList.add('d-none');
+  }
   phoneContainer.innerHTML = ``;
   phones.forEach((phone) => {
     // console.log(phone);
@@ -23,9 +32,8 @@ const displayPhones = (phones) => {
   });
 };
 // search phone
-document.getElementById('btn-search').addEventListener('click', function(){
-    const searchField = document.getElementById('search-field');
-    const searchText = searchField.value;
-    loadPhones(searchText);
+document.getElementById("btn-search").addEventListener("click", function () {
+  const searchField = document.getElementById("search-field");
+  const searchText = searchField.value;
+  loadPhones(searchText);
 });
-loadPhones();
