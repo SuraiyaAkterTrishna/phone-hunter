@@ -31,10 +31,23 @@ const displayPhones = (phones) => {
         `;
     phoneContainer.appendChild(phoneDiv);
   });
+  //  stop spinner
+  toggleSpinner(false);
 };
-// search phone
+// handle search button clicked
 document.getElementById("btn-search").addEventListener("click", function () {
+  // spinner start
+  toggleSpinner(true);
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   loadPhones(searchText);
 });
+// loading spinner
+const toggleSpinner = (isLoading) => {
+  const loaderSection = document.getElementById("loader");
+  if (isLoading) {
+    loaderSection.classList.remove("d-none");
+  } else {
+    loaderSection.classList.add("d-none");
+  }
+};
