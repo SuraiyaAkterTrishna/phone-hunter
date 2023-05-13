@@ -34,6 +34,8 @@ const displayPhones = (phones, dataLimit) => {
         <img src="${phone.image}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${phone.phone_name}</h5>
+          <p>Find here the list of all mobile phones brands of India and Worldwide, Also check latest smartphones from top & best company like Samsung, Apple, Xiaomi.</p>
+          <button onclick="loadPhoneDetails()" class="btn btn-primary">Show details</button>
         </div>
       </div>
         `;
@@ -65,3 +67,7 @@ const toggleSpinner = (isLoading) => {
 document.getElementById('btn-show-all').addEventListener('click', function(){
   processSearch();
 });
+// load phone details 
+const loadPhoneDetails = () => {
+  console.log("details button clicked");
+}
